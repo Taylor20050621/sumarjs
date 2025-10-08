@@ -3,14 +3,38 @@ function sumar(e){
     let numero1 = parseInt(document.getElementById("numero1").value);
     //OBTENER EL NUMERO 2 DESDE EL FORMULARIO
     let numero2 = parseInt(document.getElementById("numero2").value);
+    //OBTENER LA OPERACION A REALIZAR
+    let operacion = document.getElementById("operacion").value;
+    //OBTENER EL RESULTADO
+    let resultado;
+    //CONDICIONALES PARA LAS OPERACIONES
+    if(operacion === "suma"){
+        resultado = numero1 + numero2;
+    } else if (operacion === "resta"){
+        resultado = numero1 - numero2;
+    } else if (operacion === "multiplicacion"){
+        resultado = numero1 * numero2;
+    }else if (operacion === "division"){
+        if(numero2 === 0){
+            resultado = "No se puede dividir para 0"
+        } else {
+        resultado = numero1 / numero2;
+        }
+    }else {
+        document.writeln("<br>Operacion no valida")
+    }
+    document.getElementById("resultado").innerHTML = "El resultado es: " + resultado;
+
+
+
     //IMPRIMIMOS LOS VALORES INGRESADOS
-    document.writeln("<h1>El valor de la suma de los dos numeros</h1>");
-    document.writeln("<br>El valor del numero 1 es: " + numero1);
-    document.writeln("<br>El valor del numero 2 es: " + numero2);
+    //document.writeln("<h1>El valor de la suma de los dos numeros</h1>");
+    //document.writeln("<br>El valor del numero 1 es: " + numero1);
+    //document.writeln("<br>El valor del numero 2 es: " + numero2);
     //REALIZAMOS LA OPERACION
-    let suma = numero1 + numero2;
-    let raiz = parseFloat(Math.sqrt(suma));
+    //let suma = numero1 + numero2;
+    //let raiz = parseFloat(Math.sqrt(suma));
     //IMPRIMIMOS EL RESULTADO
-    document.writeln("<br>La suma de " + numero1 + " + " + numero2 + " es: " + suma);
-    document.writeln("<br>La raiz cuadrada de la suma de los dos numero es: " + raiz);
+    //document.writeln("<br>La suma de " + numero1 + " + " + numero2 + " es: " + suma);
+    //document.writeln("<br>La raiz cuadrada de la suma de los dos numero es: " + raiz);
 }
